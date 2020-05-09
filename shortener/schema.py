@@ -17,7 +17,12 @@ class Query(graphene.ObjectType):
         return URL.objects.all()
 
     def findUrl(url_search, self, info, **kwargs):
-        return URL.objects.get(full_url__exact=url_search).url_hash
+        try:
+            obj = URL.objects.get(url_hash__exact=url_search).url_hash
+        except:
+            obj = ""
+        return obj
+
 
 class CreateURL(graphene.Mutation):
     url = graphene.Field(URLType)
@@ -25,8 +30,8 @@ class CreateURL(graphene.Mutation):
     class Arguments:
         full_url = graphene.String()
 
-    def mutate(self, info, full_url):
-        url = URL(full_url=full_url)
+    def mutate(self, info, full_url, hash_code):
+        url = URL(full_url=full_url, url_hash=hash_code)
         url.save()
 
         return CreateURL(url=url)

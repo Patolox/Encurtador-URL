@@ -5,9 +5,12 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
   <head>
+  <br></br>
     <title> Encurtador de URL</title>
-    <header style="text-align: center; font-size: 26px;"> Encurtador de Url </header>
-    <small  style="text-align: center;"> Por Cícero Alves </small>
+    <div style="text-align: center;">
+      <header style="font-size: 26px;"> Encurtador de Url </header>
+      <small> Por Cícero Alves </small>
+    </div>  
   </head>
     <body>
     <br></br>
@@ -20,19 +23,24 @@
          {{ form.subject.errors }}
           <label for="url"> URL </label>
           {{ form.subject }}
-          <input type="text" class="form-control col-md-6" id="url" name="url" placeholder="URL a ser encurtada" required>
-          <br></br>
-          <input style="margin-left: 120px;" type="submit" class="form-control col-md-3" value="Encurtar">
+            <input type="text" class="form-control col-md-6" id="url" name="url" placeholder="URL a ser encurtada" required>
+            <input type="text" style="margin-top: 20px;" class="form-control col-md-6" id="code" name="code" placeholder="Codigo da url" required>
+            <br></br>
+            <input style="margin-left: 120px;" type="submit" class="form-control col-md-3" value="Encurtar">
         </div>
       </form>
 
 <br></br>
 <h5 style="text-align: center; padding-right: 35px;">URL encurtada: </h5>
 <br></br>
-    <div class="card" style="text-align: center; padding-right: 35px;">
-      <div class="card-body col-md-12">
+    <div class="card col-md-6" style="margin: auto;">
+      <div class="card-body" style="text-align: center;">
       {{ url }}
       </div>
     </div>
+    <br></br>
+  <div style="text-align:center;">
+    <a class="btn btn-primary" href="http://localhost:8000/urls/" role="button">Urls salvas</a>
+  </div>
     </body>
 </html>
