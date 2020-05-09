@@ -51,6 +51,10 @@ def showUrls(request):
     
     return render(request, 'showUrls.html', {'urls': url})
 
+def deleteUrls(request):
+    Query.deleteAll(0, 0)
+    return showUrls(request)
+
 def root(request, url_hash):
     url = get_object_or_404(URL, url_hash=url_hash)
     url.clicked()
