@@ -4,7 +4,7 @@ from django.db import models
 
 
 class URL(models.Model):
-    full_url = models.URLField(unique=True)
+    full_url = models.URLField()
     url_hash = models.URLField(unique=True)
     clicks = models.IntegerField(default=0)
 

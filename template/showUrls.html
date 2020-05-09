@@ -6,11 +6,15 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
     <body>
-        {{urls}}
+    <br></br>
+    {% for x in urls %}
+        <p style="text-align: center;">Original: {{x.full_url}} --- Encurtado: http://{{base_url}}/{{x.url_hash}}</p>
+        <br></br>
+    {% endfor %}
 
         <div style="text-align:center;">
-            <a class="btn btn-primary" href="http://localhost:8000/view/" role="button">Voltar</a>
-            <a class="btn btn-primary" href="http://localhost:8000/delete/" role="button">Deletar urls</a>
+            <a class="btn btn-primary" href="http://{{base_url}}/view/" role="button">Voltar</a>
+            <a class="btn btn-primary" href="http://{{base_url}}/delete/" role="button">Deletar urls</a>
         </div>
 
     </body>
